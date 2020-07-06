@@ -13,4 +13,6 @@ def create_random_list(size, max_val):
 # def create_random_list(size, max_val):
 #     return [random.randint(1,max_val) for num in range(size)]
 
-print(create_random_list(10,10))
+size = int(input("What size list do you want to create? "))
+max = int(input("What is the max value of the range? "))
+print(create_random_list(size,max))
