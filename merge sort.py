@@ -1,6 +1,4 @@
-def merge_sorted(arr1,arr2):
-    print("Merge function called with the lists below")
-    print(f"left: {arr1} and right: {arr2}")
+def merge_sort(arr1,arr2):
     sorted_arr = []
     i, j = 0, 0
     while i < len(arr1) and j < len(arr2):
@@ -10,7 +8,6 @@ def merge_sorted(arr1,arr2):
         else:
             sorted_arr.append(arr2[j])
             j += 1
-        print(sorted_arr)
     while i < len(arr1):
         sorted_arr.append(arr1[i])
         i += 1
@@ -19,7 +16,18 @@ def merge_sorted(arr1,arr2):
         j += 1
     return sorted_arr
 
-# Program execution
-l1 = [1,3,5,7,8,9,10]
-l2 = []
-print(f"Merged list: {merge_sorted(l1,l2)}")
+def divide_arr(arr):
+    if len(arr) < 2:
+        return arr[:]
+    else:
+        middle = len(arr)//2
+        l1 = divide_arr(arr[:middle])
+        l2 = divide_arr(arr[middle:])
+        return merge_sorted(l1, l2)
+
+# Program Execution
+l = [6, 8, 1, 4, 10, 7, 8, 9, 3, 2, 5]
+print(divide_arr(l))
+# End Program
+
+# orig list = [6, 8, 1, 4, 10, 7, 8, 9, 3, 2, 5]
