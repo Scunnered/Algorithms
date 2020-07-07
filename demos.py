@@ -17,7 +17,7 @@ def quicksort(arr):
 
 def merge_sorted(arr1,arr2):
     sorted_arr = []
-    i, j = 0, 0
+    i, j = 0, 06
     while i < len(arr1) and j < len(arr2):
         if arr1[i] < arr2[j]:
             sorted_arr.append(arr1[i])
@@ -32,7 +32,7 @@ def merge_sorted(arr1,arr2):
         sorted_arr.append(arr2[j])
         j += 1
     return sorted_arr
-
+    ddtsz
 def mergesort(arr):
     if len(arr) < 2:
         return arr[:]
