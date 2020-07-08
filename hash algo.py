@@ -35,12 +35,14 @@ class AlgoHashTable:
         else:
             return "No email found - 'i never asked for this'"
 
-    def __str__(self):
-        return "".join(str(item) for item in self.hash_table)
+        def __str__(self):
+            return "".join(str(item) for item in self.hash_table)
 
-hash_table = AlgoHashTable(256)
-hash_table.set_val('bobpage12@example.com', {'first_name':' Bob','last_name':'Page'})
-hash_table.set_val('traceryong@example.com', {'first_name':' Tracer','last_name':'Yong'})
-print(hash_table)
-hash_table.set_val('nicoletteduclare@example.com', {'first_name':' Nicolette','last_name':'DuClare'})
-print(hash_table)
+    hash_table = AlgoHashTable(256)
+    with open("data.txt") as f:
+        for line in f:
+            key, value = line.split(":")
+            hash_table.set_val(key, value)
+
+print(hash_table.get_val('bobpage12@example.com')
+print(hash_table.get_val('traceryong@example.com')
