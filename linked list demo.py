@@ -1,22 +1,38 @@
 class Node:
 
     def __init__(self, data=None):
-        pass
+        self.data = data
+        self.next = None
 
     def __str__(self):
-        pass
+        return f"{self.data}"
 
 class LinkedList:
 
     def __init__(self):
-        pass
+        self.head = None
+        self.tail = None
 
     def append_val(self, x):
         '''add x to the end of the list'''
-        pass
+        if not isinstance(x, Node):
+            x = Node(x)
+        if self.head == None:
+            self.head = x
+        else:
+            self.tail.next = x
+        self.tail = x
 
     def __str__(self):
-        pass
+        # [5->4->10->1]
+        to_print = ""
+        curr = self.head
+        while curr is not None:
+            to_print += str(curr.data) + "->"
+            curr = curr.next
+        if to_print:
+            return "[" + to_print[:-2] + "]"
+        return "[]"
 
     def add_to_start(self, x):
         '''add x to the left of the list making it the head'''
@@ -36,4 +52,14 @@ class LinkedList:
 
     def reverse_list_recur(self, current, previous):
         '''reverse the sequence of node pointers in the linked list'''
-        pass
+        # Given [1->2->3->4->5] reverse pointers [1<-2<-3<-4<-5]
+        # Turning list to [5->4->3->2->1]
+
+my_list = LinkedList()
+print(my_list)
+my_list.append_val(1)
+my_list.append_val(2)
+my_list.append_val(3)
+my_list.append_val(4)
+my_list.append_val(5)
+print(my_list)
