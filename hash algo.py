@@ -8,7 +8,7 @@ class AlgoHashTable:
         return [[] for _ in range(self.size)]
 
     def set_val(self, key, value):
-        hashed_key = 10 # hash(key)%self.size
+        hashed_key = hash(key)%self.size
         bucket = self.hash_table[hashed_key]
         found_key = False
         for index, record in enumerate(bucket):
@@ -22,14 +22,25 @@ class AlgoHashTable:
             bucket.append((key, value))
 
     def get_val(self, key):
-        pass
+        hashed_key = hash(key)%self.size
+        bucket = self.hash_table[hashed_key]
+        found_key = False
+        for index, record in enumerate(bucket):
+            record_key, record_value = record
+            if record_key == key:
+                found_key = True
+                break
+        if found_key:
+            return record_value
+        else:
+            return "No email found - 'i never asked for this'"
 
     def __str__(self):
         return "".join(str(item) for item in self.hash_table)
 
 hash_table = AlgoHashTable(256)
-hash_table.set_val('bobpage12@example.com','A prototype')
-hash_table.set_val('traceryong@example.com','retrieve the sword')
+hash_table.set_val('bobpage12@example.com', {'first_name':' Bob','last_name':'Page'})
+hash_table.set_val('traceryong@example.com', {'first_name':' Tracer','last_name':'Yong'})
 print(hash_table)
-hash_table.set_val('nicoletteduclare@example.com', 'Theres a pill for that')
+hash_table.set_val('nicoletteduclare@example.com', {'first_name':' Nicolette','last_name':'DuClare'})
 print(hash_table)
