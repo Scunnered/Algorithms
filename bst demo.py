@@ -29,10 +29,14 @@ class BSTDemo:
                 self._insert(curr.left_child, key)
 
     def in_order(self):
-        pass
+        self._in_order(self.root)
+        print("")
 
     def _in_order(self, curr):
-        pass
+        if curr:
+            self._in_order(curr.left_child)
+            print(curr.data, end=" ")
+            self._in_order(curr.right_child)
 
     def pre_order(self):
         '''root, left, right'''
@@ -62,16 +66,16 @@ class BSTDemo:
 
 tree = BSTDemo()
 tree.insert("F")
-print(tree.root.data)
 tree.insert("C")
-print(tree.root.left_child.data)
 tree.insert("G")
-print(tree.root.right_child.data)
 tree.insert("A")
-print(tree.root.left_child.left_child.data)
 tree.insert("B")
-print(tree.root.left_child.left_child.right_child.data)
 tree.insert("K")
-print(tree.root.right_child.right_child.data)
+tree.insert("E")
 tree.insert("H")
-print(tree.root.right_child.right_child.left_child.data)
+tree.insert("D")
+tree.insert("I")
+tree.insert("M")
+tree.insert("J")
+tree.insert("L")
+tree.in_order()
