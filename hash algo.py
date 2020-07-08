@@ -33,10 +33,10 @@ class AlgoHashTable:
         if found_key:
             return record_value
         else:
-            return "No email found - 'i never asked for this'"
+            return "No record found with that email address"
 
-        def __str__(self):
-            return "".join(str(item) for item in self.hash_table)
+    def __str__(self):
+        return "".join(str(item) for item in self.hash_table)
 
     hash_table = AlgoHashTable(256)
     with open("data.txt") as f:

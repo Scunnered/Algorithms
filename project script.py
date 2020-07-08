@@ -23,7 +23,7 @@ def generate_records(length_of_name, list_of_domains, total_records, list_of_quo
             key = generate_name(length_of_name)+"@"+get_domain(list_of_domains)
             value = get_quotes(quotes)
             to_write.write(key + ":" + value + "\n")
-        to_write.write("bobpage12@example.com:Bet you didn't know your mom and dad tried to protest when we put you in training. They loved their little boy, JC, and that's why they're dead. I'm sending up the man who did the job.\n")
-        to_write.write("traceryong@example.com:As long as technology has a global reach, someone will have the world in the palm of his hand. If not Bob Page, then Everett, Dowd...\n")
+        to_write.write("mashrur@example.com:Don't let me leave Murph\n")
+        to_write.write("evgeny@example.com:All I do is win win win no matter what!\n")
 
 generate_records(10, list_of_domains, 100000, quotes)
