@@ -39,24 +39,29 @@ class BSTDemo:
             self._in_order(curr.right_child)
 
     def pre_order(self):
-        '''root, left, right'''
         pass
 
     def _pre_order(self, curr):
         pass
 
     def post_order(self):
-        '''left, right, root'''
         pass
 
     def _post_order(self, curr):
         pass
 
     def find_val(self, key):
-        pass
+        return self._find_val(self.root, key)
 
     def _find_val(self, curr, key):
-        pass
+        if curr:
+            if key == curr.data:
+                return "Value found in tree"
+            elif key < curr.data:
+                return self._find_val(curr.left_child, key)
+            else:
+                return self._find_val(curr.right_child, key)
+        return "Value not found in tree"
 
     def delete_val(self, key):
         pass
@@ -65,6 +70,12 @@ class BSTDemo:
         pass
 
 tree = BSTDemo()
+tree.insert("H")
+tree.insert("D")
+tree.insert("I")
+tree.insert("M")
+tree.insert("J")
+tree.insert("L")
 tree.insert("F")
 tree.insert("C")
 tree.insert("G")
@@ -72,10 +83,7 @@ tree.insert("A")
 tree.insert("B")
 tree.insert("K")
 tree.insert("E")
-tree.insert("H")
-tree.insert("D")
-tree.insert("I")
-tree.insert("M")
-tree.insert("J")
-tree.insert("L")
 tree.in_order()
+print(tree.find_val("E"))
+print(tree.find_val("J"))
+print(tree.find_val("Z"))
